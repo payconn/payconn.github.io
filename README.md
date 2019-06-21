@@ -1,37 +1,34 @@
-## Welcome to GitHub Pages
+# Payconn
 
-You can use the [editor on GitHub](https://github.com/payconn/payconn.org/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+**Payconn is a framework agnostic, multi-gateway payment processing library for PHP.**
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+[![Build Status](https://travis-ci.com/payconn/common.svg?branch=master)](https://travis-ci.com/payconn/common)
 
-### Markdown
+[Payconn](https://github.com/payconn/common) is a framework agnostic, multi-gateway payment
+processing library for PHP. This package implements common classes required by Payconn.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Installation
 
-```markdown
-Syntax highlighted code block
+    $ composer require payconn/common
 
-# Header 1
-## Header 2
-### Header 3
+## Change log
 
-- Bulleted
-- List
+Please see [UPGRADE](UPGRADE.md) for more information on how to upgrade to the latest version.
 
-1. Numbered
-2. List
+## Support
 
-**Bold** and _Italic_ and `Code` text
+If you are having general issues with Payconn, we suggest posting on
+[Stack Overflow](http://stackoverflow.com/). Be sure to add the
 
-[Link](url) and ![Image](src)
-```
+If you believe you have found a bug, please report it using the [GitHub issue tracker](https://github.com/payconn/common/issues),
+or better yet, fork the library and submit a pull request.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
+## Security
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/payconn/payconn.org/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+If you discover any security related issues, please email muratsac@mail.com instead of using the issue tracker.
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
