@@ -5,10 +5,10 @@ processing library for PHP. This package implements common classes required by P
 
 ## Supported payment gateways
 
-- [Nestpay (EST)](#nestpay)
-- [Vakıf](#vakif)
-- [iPara](#ipara)
-- [Garanti](#garanti)
+- [Nestpay (EST)](https://github.com/payconn/payconn.org/blob/master/nestpay.md)
+- [Vakıf](https://github.com/payconn/payconn.org/blob/master/vakif.md)
+- [iPara](https://github.com/payconn/payconn.org/blob/master/ipara.md)
+- [Garanti](https://github.com/payconn/payconn.org/blob/master/garanti.md)
 
 ## Installation
 
