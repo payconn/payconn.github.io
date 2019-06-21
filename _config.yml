@@ -3,4 +3,4 @@ description: Payconn is a framework agnostic, multi-gateway payment processing l
 url: https://payconn.org
 repository: https://github.com/payconn
 theme: jekyll-theme-cayman
-repository_url: https://github.com/payconn
+repository-url: https://github.com/payconn
