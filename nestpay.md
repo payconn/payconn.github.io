@@ -21,22 +21,21 @@ Nestpay (A Bank, Ak Bank, Anadolu Bank, Finans Bank, Halk Bank, ING Bank, İş B
 Allows you to receive payments directly.
 
 ```php
+use Payconn\Nestpay\Token;
 use Payconn\Common\CreditCard;
-use Payconn\Garanti;
-use Payconn\Garanti\Currency;
-use Payconn\Garanti\Model\Purchase;
-use Payconn\Garanti\Token;
+use Payconn\Nestpay\Model\Purchase;
+use Payconn\Nestpay\Currency;
+use Payconn\AkBank;
 
 $token = new Token('YOUR_CLIENT_ID', 'YOUR_USERNAME', 'YOUR_PASS');
-$creditCard = new CreditCard('4824894728063019', '23', '07', '172');
+$creditCard = new CreditCard('4355084355084358', '26', '12', '000');
 $purchase = new Purchase();
 $purchase->setTestMode(true);
 $purchase->setCreditCard($creditCard);
-$purchase->setCurrency(Currency::TRY);
-$purchase->setAmount(100);
+$purchase->setAmount(1);
 $purchase->setInstallment(1);
-$purchase->generateOrderId();
-$response = (new Garanti($token))->purchase($purchase);
+$purchase->setCurrency(Currency::TRY);
+$response = (new AkBank($token))->purchase($purchase);
 if($response->isSuccessful()){
     // success!
 }
@@ -88,7 +87,7 @@ $complete->setReturnParams([
     'xid' => 'ifmTW9moVmSL1v4v7CtufhWCcAY=', // $_POST['xid']
     'eci' => '05', // $_POST['eci']
     'cavv' => 'AAABBCYHAgAAAAARMAcCAAAAAAA=', // $_POST['cavv']
-    'md' => '435508:7D4CC6608E4E5BCFD4DCE2C6A4ED113ED7E916D56E54302CD49012778C2652D6:4285:##100100000', // $_POST['md']
+    'md' => '435508:7D4CC6608E4E5BCFD4DCE2C6A4ED', // $_POST['md']
     'oid' => '', // $_POST['oid']
 ]);
 $complete->setCurrency(Currency::TRY);
