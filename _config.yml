@@ -1,18 +1,5 @@
----
 name: Payconn
 description: Payconn is a framework agnostic, multi-gateway payment processing library for PHP.
 url: https://payconn.org
 repository: https://github.com/payconn
-twitter:
-  username: jekyllrb
-logo: "/img/logo-2x.png"
 theme: jekyll-theme-cayman
-
-plugins:
-- jekyll-avatar
-- jekyll-feed
-- jekyll-mentions
-- jekyll-redirect-from
-- jekyll-seo-tag
-- jekyll-sitemap
-- jemoji
