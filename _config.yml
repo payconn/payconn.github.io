@@ -1,4 +1,4 @@
-project-name: Payconn
+title: Payconn
 description: Payconn is a framework agnostic, multi-gateway payment processing library for PHP.
 url: https://payconn.org
 repository: https://github.com/payconn
