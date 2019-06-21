@@ -1,11 +1,14 @@
-# Payconn
-
-**Payconn is a framework agnostic, multi-gateway payment processing library for PHP.**
-
 [![Build Status](https://travis-ci.com/payconn/common.svg?branch=master)](https://travis-ci.com/payconn/common)
 
 [Payconn](https://github.com/payconn/common) is a framework agnostic, multi-gateway payment
 processing library for PHP. This package implements common classes required by Payconn.
+
+## Supported payment gateways and banks
+
+- [Nestpay (EST)](#nestpay)
+- [Vakıf](#vakif)
+- [iPara](#ipara)
+- [Garanti](#garanti)
 
 ## Installation
 
