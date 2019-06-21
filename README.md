@@ -12,7 +12,7 @@ processing library for PHP. This package implements common classes required by P
 
 ## Installation
 
-    $ composer require payconn/common
+    $ composer require payconn/payconn
 
 ## Basic Usage
 
