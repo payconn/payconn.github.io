@@ -41,7 +41,7 @@ if($response->isSuccessful()){
 }
 ```
 
-## Authorize
+## Authorize: 3D Step-1
 
 Starts payment flow by redirecting to your payment providers security page.
 
@@ -68,7 +68,7 @@ if($response->isRedirection()){
 }
 ```
 
-## Complete
+## Complete: 3D Step-2
 
 It terminates the 3D security flow and makes the payment.
 
