@@ -27,7 +27,7 @@ use Payconn\Garanti\Currency;
 use Payconn\Garanti\Model\Purchase;
 use Payconn\Garanti\Token;
 
-$token = new Token('30691297', '7000679', '123qweASD/');
+$token = new Token('YOUR_CLIENT_ID', 'YOUR_USERNAME', 'YOUR_PASS');
 $creditCard = new CreditCard('4824894728063019', '23', '07', '172');
 $purchase = new Purchase();
 $purchase->setTestMode(true);
@@ -53,7 +53,7 @@ use Payconn\Nestpay\Model\Authorize;
 use Payconn\Nestpay\Currency;
 use Payconn\AkBank;
 
-$token = new Token('100100000', 'AKTESTAPI', 'AKBANK01', '123456');
+$token = new Token('YOUR_CLIENT_ID', 'YOUR_USERNAME', 'YOUR_PASS', 'YOUR_STORE_KEY');
 $creditCard = new CreditCard('4355084355084358', '26', '12', '000');
 $authorize = new Authorize();
 $authorize->setFailureUrl('http://127.0.0.1:8000/failure');
@@ -85,11 +85,11 @@ $token = new Token('YOUR_CLIENT_ID', 'YOUR_USERNAME', 'YOUR_PASS', 'YOUR_STORE_K
 $complete = new Complete();
 $complete->setTestMode(true);
 $complete->setReturnParams([
-    'xid' => 'ifmTW9moVmSL1v4v7CtufhWCcAY=',
-    'eci' => '05',
-    'cavv' => 'AAABBCYHAgAAAAARMAcCAAAAAAA=',
-    'md' => '435508:7D4CC6608E4E5BCFD4DCE2C6A4ED113ED7E916D56E54302CD49012778C2652D6:4285:##100100000',
-    'oid' => '',
+    'xid' => 'ifmTW9moVmSL1v4v7CtufhWCcAY=', // $_POST['xid']
+    'eci' => '05', // $_POST['eci']
+    'cavv' => 'AAABBCYHAgAAAAARMAcCAAAAAAA=', // $_POST['cavv']
+    'md' => '435508:7D4CC6608E4E5BCFD4DCE2C6A4ED113ED7E916D56E54302CD49012778C2652D6:4285:##100100000', // $_POST['md']
+    'oid' => '', // $_POST['oid']
 ]);
 $complete->setCurrency(Currency::TRY);
 $complete->setInstallment(1);
