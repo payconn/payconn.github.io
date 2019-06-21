@@ -38,10 +38,6 @@ if($response->isSuccessful()){
 }
 ```
 
-## Change log
-
-Please see [UPGRADE](UPGRADE.md) for more information on how to upgrade to the latest version.
-
 ## Support
 
 If you are having general issues with Payconn, we suggest posting on
