@@ -108,16 +108,7 @@ if($response->isSuccessful()){
 Performs refund for an old payment.
 
 ```php
-use Payconn\Nestpay\Token;
-use Payconn\Nestpay\Model\Refund;
-use Payconn\AkBank;
 
-$token = new Token('YOUR_CLIENT_ID', 'YOUR_USERNAME', 'YOUR_PASS');
-$refund = new Refund();
-$refund->setTestMode(true);
-$refund->setOrderId('YOUR_ORDER_ID');
-$refund->setAmount('1'); // refund amount
-$response = (new AkBank($token))->refund($refund);
 if($response->isSuccessful()){
     // success!
 }
@@ -128,15 +119,6 @@ if($response->isSuccessful()){
 Cancels a payment.
 
 ```php
-use Payconn\Nestpay\Token;
-use Payconn\Nestpay\Model\Cancel;
-use Payconn\AkBank;
-
-$token = new Token('YOUR_CLIENT_ID', 'YOUR_USERNAME', 'YOUR_PASS');
-$cancel = new Cancel();
-$cancel->setOrderId('YOUR_ORDER_ID');
-$cancel->setTestMode(true);
-$response = (new AkBank($token))->cancel($cancel);
 if($response->isSuccessful()){
     // success!
 }
