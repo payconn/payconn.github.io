@@ -1,0 +1,138 @@
+# Payconn: Vakıf
+
+[![Build Status](https://travis-ci.com/payconn/vakif.svg?branch=master)](https://travis-ci.com/payconn/vakif)
+
+Vakıf (Vpos724) gateway for Payconn payment processing library
+
+## Supported methods
+
+- purchase
+- authorize
+- complete
+- cancel
+- refund
+
+## Installation
+
+    $ composer require payconn/vakif
+
+## Purchase
+
+Allows you to receive payments directly.
+
+```php
+use Payconn\Common\CreditCard;
+use Payconn\Vakif\Token;
+use Payconn\Vakif\Model\Purchase;
+use Payconn\Vakif\Currency;
+use Payconn\Vakif;
+
+$token = new Token('YOUR_MERCHANT_ID', 'YOUR_TERMINAL_ID', 'YOUR_PASS');
+$purchase = new Purchase();
+$purchase->setTestMode(true);
+$purchase->setCurrency(Currency::TRY);
+$purchase->setAmount(100);
+$purchase->setInstallment(1);
+$purchase->setCreditCard(new CreditCard('4289450189088488', '2023', '04', '060'));
+$response = (new Vakif($token))->purchase($purchase);
+if($response->isSuccessful()){
+    // success!
+}
+```
+
+## Authorize: 3D Step-1
+
+Starts payment flow by redirecting to your payment providers security page.
+
+```php
+use Payconn\Vakif\Token;
+use Payconn\Vakif\Model\Authorize;
+use Payconn\Vakif\Currency;
+use Payconn\Common\CreditCard;
+
+$token = new Token('YOUR_MERCHANT_ID', 'YOUR_TERMINAL_ID', 'YOUR_PASS');
+$authorize = new Authorize();
+$authorize->setTestMode(true);
+$authorize->setCurrency(Currency::TRY);
+$authorize->setAmount(1.26);
+$authorize->setInstallment(3);
+$authorize->setCreditCard(new CreditCard('4289450189088488', '2023', '04', '060'));
+$authorize->setSuccessfulUrl('http://127.0.0.1:8000/successful');
+$authorize->setFailureUrl('http://127.0.0.1:8000/failure');
+$authorize->setCardBrand('100');
+$authorize->generateOrderId(); // auto generated or $authorize->setOrderId('YOUR_ORDER_ID');
+$response = (new \Payconn\Vakif($token))->authorize($authorize);
+if($response->isSuccessful() && $response->isRedirection()){
+    echo $response->getRedirectForm();
+}
+```
+
+## Complete: 3D Step-2
+
+It terminates the 3D security flow and makes the payment.
+
+`returnParams` are the parameters returned from the bank.
+
+```php
+use Payconn\Nestpay\Token;
+use Payconn\Nestpay\Model\Complete;
+use Payconn\Nestpay\Currency;
+use Payconn\AkBank;
+
+$token = new Token('YOUR_CLIENT_ID', 'YOUR_USERNAME', 'YOUR_PASS', 'YOUR_STORE_KEY');
+$complete = new Complete();
+$complete->setTestMode(true);
+$complete->setReturnParams([
+    'xid' => 'ifmTW9moVmSL1v4v7CtufhWCcAY=', // $_POST['xid']
+    'eci' => '05', // $_POST['eci']
+    'cavv' => 'AAABBCYHAgAAAAARMAcCAAAAAAA=', // $_POST['cavv']
+    'md' => '435508:7D4CC6608E4E5BCFD4DCE2C6A4ED', // $_POST['md']
+    'oid' => '', // $_POST['oid']
+]);
+$complete->setCurrency(Currency::TRY);
+$complete->setInstallment(1);
+$complete->setAmount(1);
+$response = (new AkBank($token))->complete($complete);
+if($response->isSuccessful()){
+    // success!
+}
+```
+
+## Refund
+
+Performs refund for an old payment.
+
+```php
+use Payconn\Nestpay\Token;
+use Payconn\Nestpay\Model\Refund;
+use Payconn\AkBank;
+
+$token = new Token('YOUR_CLIENT_ID', 'YOUR_USERNAME', 'YOUR_PASS');
+$refund = new Refund();
+$refund->setTestMode(true);
+$refund->setOrderId('YOUR_ORDER_ID');
+$refund->setAmount('1'); // refund amount
+$response = (new AkBank($token))->refund($refund);
+if($response->isSuccessful()){
+    // success!
+}
+```
+
+## Cancel
+
+Cancels a payment.
+
+```php
+use Payconn\Nestpay\Token;
+use Payconn\Nestpay\Model\Cancel;
+use Payconn\AkBank;
+
+$token = new Token('YOUR_CLIENT_ID', 'YOUR_USERNAME', 'YOUR_PASS');
+$cancel = new Cancel();
+$cancel->setOrderId('YOUR_ORDER_ID');
+$cancel->setTestMode(true);
+$response = (new AkBank($token))->cancel($cancel);
+if($response->isSuccessful()){
+    // success!
+}
+```
