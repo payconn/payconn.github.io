@@ -25,19 +25,24 @@ Immediately capture an amount on the customer's card.
 
 ```php
 use Payconn\Common\CreditCard;
-use Payconn\Vakif\Token;
-use Payconn\Vakif\Model\Purchase;
-use Payconn\Vakif\Currency;
-use Payconn\Vakif;
+use Payconn\Ipara\Token;
+use Payconn\Ipara\Model\Purchase;
+use Payconn\Ipara\Product;
+use Payconn\Ipara;
 
-$token = new Token('YOUR_MERCHANT_ID', 'YOUR_TERMINAL_ID', 'YOUR_PASS');
+$token = new Token('YOUR_PUBLIC_KEY', 'YOUR_PRIVATE_KEY');
 $purchase = new Purchase();
 $purchase->setTestMode(true);
-$purchase->setCurrency(Currency::TRY);
 $purchase->setAmount(100);
 $purchase->setInstallment(1);
-$purchase->setCreditCard(new CreditCard('4289450189088488', '2023', '04', '060'));
-$response = (new Vakif($token))->purchase($purchase);
+$purchase->setFirstName('Murat');
+$purchase->setLastName('Sac');
+$purchase->setEmail('muratsac@mail.com');
+$purchase->addProduct((new Product('001', 'Test', 100)));
+$purchase->setCreditCard((new CreditCard('4282209027132016', '2024', '12', '358'))
+    ->setHolderName('Murat Sac'));
+$purchase->generateOrderId(); // auto generated or `$purchase->setOrderId('YOUR_ORDER_ID')`
+$response = (new Ipara($token))->purchase($purchase);
 if($response->isSuccessful()){
     // success!
 }
@@ -48,23 +53,27 @@ if($response->isSuccessful()){
 Authorize an amount on the customer's card.
 
 ```php
-use Payconn\Vakif\Token;
-use Payconn\Vakif\Model\Authorize;
-use Payconn\Vakif\Currency;
 use Payconn\Common\CreditCard;
+use Payconn\Ipara\Token;
+use Payconn\Ipara\Model\Authorize;
+use Payconn\Ipara\Product;
+use Payconn\Ipara;
 
-$token = new Token('YOUR_MERCHANT_ID', 'YOUR_TERMINAL_ID', 'YOUR_PASS');
+$token = new Token('YOUR_PUBLIC_KEY', 'YOUR_PRIVATE_KEY');
 $authorize = new Authorize();
 $authorize->setTestMode(true);
-$authorize->setCurrency(Currency::TRY);
-$authorize->setAmount(1.26);
-$authorize->setInstallment(3);
-$authorize->setCreditCard(new CreditCard('4289450189088488', '2023', '04', '060'));
+$authorize->setAmount(100);
+$authorize->setInstallment(1);
+$authorize->setFirstName('Murat');
+$authorize->setLastName('Sac');
+$authorize->setEmail('muratsac@mail.com');
 $authorize->setSuccessfulUrl('http://127.0.0.1:8000/successful');
 $authorize->setFailureUrl('http://127.0.0.1:8000/failure');
-$authorize->setCardBrand('100');
-$authorize->generateOrderId(); // auto generated or $authorize->setOrderId('YOUR_ORDER_ID');
-$response = (new \Payconn\Vakif($token))->authorize($authorize);
+$authorize->addProduct((new Product('001', 'Test', 100)));
+$authorize->setCreditCard((new CreditCard('4282209027132016', '2024', '12', '358'))
+    ->setHolderName('MuratSac'));
+$authorize->generateOrderId(); // auto generated or `$authorize->setOrderId('YOUR_ORDER_ID')`
+$response = (new Ipara($token))->authorize($authorize);
 if($response->isSuccessful() && $response->isRedirection()){
     echo $response->getRedirectForm();
 }
@@ -75,30 +84,26 @@ if($response->isSuccessful() && $response->isRedirection()){
 Handle return from off-site gateways after purchase.
 
 ```php
-use Payconn\Vakif\Token;
-use Payconn\Vakif\Model\Complete;
-use Payconn\Vakif;
+use Payconn\Ipara\Token;
+use Payconn\Ipara\Model\Complete;
+use Payconn\Ipara\Product;
+use Payconn\Ipara;
 
-$token = new Token('YOUR_MERCHANT_ID', 'YOUR_TERMINAL_ID', 'YOUR_PASS');
+$token = new Token('YOUR_PUBLIC_KEY', 'YOUR_PRIVATE_KEY');
 $complete = new Complete();
 $complete->setTestMode(true);
+$complete->setFirstName('Murat');
+$complete->setLastName('Sac');
+$complete->setEmail('muratsac@mail.com');
+$complete->addProduct((new Product('001', 'Test', 100)));
 $complete->setReturnParams([
-    'MerchantId' => '000100000013506', // $_POST['MerchantId']
-    'Pan' => '4289450189088488', // $_POST['Pan']
-    'Expiry' => '2304', // $_POST['Expiry']
-    'PurchAmount' => '126', // $_POST['PurchAmount']
-    'PurchCurrency' => '949', // $_POST['PurchCurrency']
-    'VerifyEnrollmentRequestId' => 'ORDER1560106112', // $_POST['VerifyEnrollmentRequestId']
-    'Xid' => 'vz6266srj9kdke7pcf84', // $_POST['Xid']
-    'SessionInfo' => '1.26', // $_POST['SessionInfo']
-    'Status' => 'Y', // $_POST['Status']
-    'Cavv' => 'AAABAHdHEQAAAAAgYEcRAAAAAAA=', // $_POST['Cavv']
-    'Eci' => '05', // $_POST['Eci']
-    'InstallmentCount' => '3', // $_POST['InstallmentCount']
-    'ErrorCode' => '', // $_POST['ErrorCode']
-    'ErrorMessage' => '', // $_POST['ErrorMessage']
+    'mode' => 'T', // $_POST['mode']
+    'amount' => '10000', // $_POST['amount']
+    'orderId' => 'ORD-1560882728', // $_POST['orderId']
+    'threeDSecureCode' => '002Ddg+sMQOrdYxQdtsg', // $_POST['threeDSecureCode']
+    'transactionDate' => '2019-06-18 21:28:50', // $_POST['transactionDate']
 ]);
-$response = (new Vakif($token))->complete($complete);
+$response = (new Ipara($token))->complete($complete);
 if($response->isSuccessful()){
     // success!
 }
@@ -109,16 +114,18 @@ if($response->isSuccessful()){
 Refund an already processed transaction.
 
 ```php
-use Payconn\Vakif\Token;
-use Payconn\Vakif\Model\Refund;
-use Payconn\Vakif;
+use Payconn\Ipara\Token;
+use Payconn\Ipara\Model\Refund;
+use Payconn\Ipara;
 
-$token = new Token('YOUR_MERCHANT_ID', 'YOUR_TERMINAL_ID', 'YOUR_PASS');
+$token = new Token('YOUR_PUBLIC_KEY', 'YOUR_PRIVATE_KEY');
 $refund = new Refund();
 $refund->setTestMode(true);
+$refund->setAmount(100);
 $refund->setOrderId('YOUR_ORDER_ID');
-$refund->setAmount('1.25');
-$response = (new Vakif($token))->refund($refund);
+$refund->setTransactionDate('YOUR_TRANSACTION_DATE');
+$refund->setOrderHash('YOUR_ORDER_HASH');
+$response = (new Ipara($token))->refund($refund);
 if($response->isSuccessful()){
     // success!
 }
