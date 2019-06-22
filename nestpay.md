@@ -6,11 +6,13 @@ Nestpay (A Bank, Ak Bank, Anadolu Bank, Finans Bank, Halk Bank, ING Bank, İş B
 
 ## Supported methods
 
-- purchase
-- authorize
-- complete
-- cancel
-- refund
+Method | Description
+--- | --- 
+[purchase](#purchase)| Immediately capture an amount on the customer's card
+[authorize](#authorize)| Authorize an amount on the customer's card
+[complete](#complete)| Handle return from off-site gateways after purchase
+[refund](#refund)| Refund an already processed transaction
+[cancel](#cancel)| Void an already processed transaction
 
 ## Installation
 
