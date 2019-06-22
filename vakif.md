@@ -4,21 +4,25 @@
 
 Vakıf (Vpos724) gateway for Payconn payment processing library
 
-## Supported methods
-
-- purchase
-- authorize
-- complete
-- cancel
-- refund
-
 ## Installation
 
     $ composer require payconn/vakif
 
+## Methods
+
+The following methods are available:
+
+Method | Description
+--- | --- 
+[purchase](#purchase)| Immediately capture an amount on the customer's card
+[authorize](#authorize)| Authorize an amount on the customer's card
+[complete](#complete)| Handle return from off-site gateways after purchase
+[refund](#refund)| Refund an already processed transaction
+[cancel](#cancel)| Void an already processed transaction
+
 ## Purchase
 
-Allows you to receive payments directly.
+Immediately capture an amount on the customer's card.
 
 ```php
 use Payconn\Common\CreditCard;
@@ -40,9 +44,9 @@ if($response->isSuccessful()){
 }
 ```
 
-## Authorize: 3D Step-1
+## Authorize
 
-Starts payment flow by redirecting to your payment providers security page.
+Authorize an amount on the customer's card.
 
 ```php
 use Payconn\Vakif\Token;
@@ -67,11 +71,9 @@ if($response->isSuccessful() && $response->isRedirection()){
 }
 ```
 
-## Complete: 3D Step-2
+## Complete
 
-It terminates the 3D security flow and makes the payment.
-
-`returnParams` are the parameters returned from the bank.
+Handle return from off-site gateways after purchase.
 
 ```php
 use Payconn\Vakif\Token;
@@ -105,7 +107,7 @@ if($response->isSuccessful()){
 
 ## Refund
 
-Performs refund for an old payment.
+Refund an already processed transaction.
 
 ```php
 use Payconn\Vakif\Token;
@@ -125,7 +127,7 @@ if($response->isSuccessful()){
 
 ## Cancel
 
-Cancels a payment.
+Void an already processed transaction.
 
 ```php
 use Payconn\Vakif\Token;
