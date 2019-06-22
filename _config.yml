@@ -4,3 +4,6 @@ url: https://payconn.org
 repository: https://github.com/payconn
 theme: jekyll-theme-cayman
 repository-url: https://github.com/payconn
+
+plugins:
+- jekyll-menus
