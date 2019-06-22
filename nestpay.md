@@ -9,7 +9,9 @@ Nestpay (A Bank, Ak Bank, Anadolu Bank, Finans Bank, Halk Bank, ING Bank, İş B
     $ composer require payconn/nestpay
 
 
-## Supported methods
+## Methods
+
+The following methods are available:
 
 Method | Description
 --- | --- 
