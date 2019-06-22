@@ -63,7 +63,7 @@ $authorize->setAmount(1);
 $authorize->setInstallment(1);
 $authorize->setTestMode(true);
 $response = (new AkBank($token))->authorize($authorize);
-if($response->isRedirection()){
+if($response->isSuccessful() && $response->isRedirection()){
     echo $response->getRedirectForm();
 }
 ```
@@ -120,3 +120,20 @@ if($response->isSuccessful()){
 ```
 
 ## Cancel
+
+Cancels a payment.
+
+```php
+use Payconn\Nestpay\Token;
+use Payconn\Nestpay\Model\Cancel;
+use Payconn\AkBank;
+
+$token = new Token('YOUR_CLIENT_ID', 'YOUR_USERNAME', 'YOUR_PASS');
+$cancel = new Cancel();
+$cancel->setOrderId('YOUR_ORDER_ID');
+$cancel->setTestMode(true);
+$response = (new AkBank($token))->cancel($cancel);
+if($response->isSuccessful()){
+    // success!
+}
+```
