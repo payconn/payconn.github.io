@@ -4,6 +4,11 @@
 
 Nestpay (A Bank, Ak Bank, Anadolu Bank, Finans Bank, Halk Bank, ING Bank, İş Bank, Şeker Bank, Türk Ekonomi Bank (TEB), Ziraat Bank) gateway for Payconn payment processing library
 
+## Installation
+
+    $ composer require payconn/nestpay
+
+
 ## Supported methods
 
 Method | Description
@@ -13,10 +18,6 @@ Method | Description
 [complete](#complete)| Handle return from off-site gateways after purchase
 [refund](#refund)| Refund an already processed transaction
 [cancel](#cancel)| Void an already processed transaction
-
-## Installation
-
-    $ composer require payconn/nestpay
 
 ## Purchase
 
