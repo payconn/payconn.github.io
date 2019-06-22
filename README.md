@@ -5,8 +5,8 @@ processing library for PHP. This package implements common classes required by P
 
 ## Payment Gateways
 
-All payment gateways must implement [GatewayInterface](https://github.com/thephpleague/omnipay-common/blob/master/src/Common/GatewayInterface.php), and will usually
-extend [AbstractGateway](https://github.com/thephpleague/omnipay-common/blob/master/src/Common/AbstractGateway.php) for basic functionality.
+All payment gateways must implement [GatewayInterface](https://github.com/payconn/common/blob/master/src/Common/GatewayInterface.php), and will usually
+extend [AbstractGateway](https://github.com/payconn/common/blob/master/src/Common/AbstractGateway.php) for basic functionality.
 
 The following gateways are available:
 
