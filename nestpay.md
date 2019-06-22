@@ -98,3 +98,25 @@ if($response->isSuccessful()){
     // success!
 }
 ```
+
+## Refund
+
+Performs refund for an old payment.
+
+```php
+use Payconn\Nestpay\Token;
+use Payconn\Nestpay\Model\Refund;
+use Payconn\AkBank;
+
+$token = new Token('YOUR_CLIENT_ID', 'YOUR_USERNAME', 'YOUR_PASS');
+$refund = new Refund();
+$refund->setTestMode(true);
+$refund->setOrderId('YOUR_ORDER_ID');
+$refund->setAmount('1'); // refund amount
+$response = (new AkBank($token))->refund($refund);
+if($response->isSuccessful()){
+    // success!
+}
+```
+
+## Cancel
