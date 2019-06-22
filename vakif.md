@@ -108,7 +108,16 @@ if($response->isSuccessful()){
 Performs refund for an old payment.
 
 ```php
+use Payconn\Vakif\Token;
+use Payconn\Vakif\Model\Refund;
+use Payconn\Vakif;
 
+$token = new Token('YOUR_MERCHANT_ID', 'YOUR_TERMINAL_ID', 'YOUR_PASS');
+$refund = new Refund();
+$refund->setTestMode(true);
+$refund->setOrderId('YOUR_ORDER_ID');
+$refund->setAmount('1.25');
+$response = (new Vakif($token))->refund($refund);
 if($response->isSuccessful()){
     // success!
 }
@@ -119,6 +128,15 @@ if($response->isSuccessful()){
 Cancels a payment.
 
 ```php
+use Payconn\Vakif\Token;
+use Payconn\Vakif\Model\Cancel;
+use Payconn\Vakif;
+
+$token = new Token('YOUR_MERCHANT_ID', 'YOUR_TERMINAL_ID', 'YOUR_PASS');
+$cancel = new Cancel();
+$cancel->setTestMode(true);
+$cancel->setOrderId('YOUR_ORDER_ID');
+$response = (new Vakif($token))->cancel($cancel);
 if($response->isSuccessful()){
     // success!
 }
