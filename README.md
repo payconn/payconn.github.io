@@ -30,7 +30,7 @@ use Payconn\Garanti\Currency;
 use Payconn\Garanti\Model\Purchase;
 use Payconn\Garanti\Token;
 
-$token = new Token('30691297', '7000679', '123qweASD/');
+$token = new Token('YOUR_TERMINAL_ID', 'YOUR_MERCHANT_ID', 'YOUR_PASS');
 $creditCard = new CreditCard('4824894728063019', '23', '07', '172');
 $purchase = new Purchase();
 $purchase->setTestMode(true);
