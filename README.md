@@ -3,12 +3,19 @@
 [Payconn](https://github.com/payconn/common) is a framework agnostic, multi-gateway payment
 processing library for PHP. This package implements common classes required by Payconn.
 
-## Supported payment gateways
+## Payment Gateways
 
-- [Nestpay (EST)](https://payconn.org/nestpay)
-- [Vakıf](https://payconn.org/vakif)
-- [iPara](https://payconn.org/ipara)
-- [Garanti](https://payconn.org/garanti)
+All payment gateways must implement [GatewayInterface](https://github.com/thephpleague/omnipay-common/blob/master/src/Common/GatewayInterface.php), and will usually
+extend [AbstractGateway](https://github.com/thephpleague/omnipay-common/blob/master/src/Common/AbstractGateway.php) for basic functionality.
+
+The following gateways are available:
+
+Gateway | Composer Package | Author | Build Status 
+--- | --- | --- | ---
+[Nestpay (EST)](https://payconn.org/nestpay) | payconn/nestpay | [Murat SAÇ](https://github.com/muratsac) | [![Build Status](https://travis-ci.com/payconn/nestpay.svg?branch=master)](https://travis-ci.com/payconn/nestpay)
+[Vakıf](https://payconn.org/vakif) | payconn/vakif | [Murat SAÇ](https://github.com/muratsac) | [![Build Status](https://travis-ci.com/payconn/vakif.svg?branch=master)](https://travis-ci.com/payconn/vakif)
+[iPara](https://payconn.org/ipara) | payconn/ipara | [Murat SAÇ](https://github.com/muratsac) | [![Build Status](https://travis-ci.com/payconn/ipara.svg?branch=master)](https://travis-ci.com/payconn/ipara)
+[Garanti](https://payconn.org/garanti) | payconn/garanti | [Murat SAÇ](https://github.com/muratsac) | [![Build Status](https://travis-ci.com/payconn/garanti.svg?branch=master)](https://travis-ci.com/payconn/garanti)
 
 ## Installation
 
