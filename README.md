@@ -12,10 +12,10 @@ The following gateways are available:
 
 Gateway | Composer Package | Author | Build Status 
 --- | --- | --- | ---
-[Nestpay (EST)](https://payconn.org/nestpay) | payconn/nestpay | [Murat SAÇ](https://github.com/muratsac) | [![Build Status](https://travis-ci.com/payconn/nestpay.svg?branch=master)](https://travis-ci.com/payconn/nestpay)
-[Vakıf](https://payconn.org/vakif) | payconn/vakif | [Murat SAÇ](https://github.com/muratsac) | [![Build Status](https://travis-ci.com/payconn/vakif.svg?branch=master)](https://travis-ci.com/payconn/vakif)
-[iPara](https://payconn.org/ipara) | payconn/ipara | [Murat SAÇ](https://github.com/muratsac) | [![Build Status](https://travis-ci.com/payconn/ipara.svg?branch=master)](https://travis-ci.com/payconn/ipara)
-[Garanti](https://payconn.org/garanti) | payconn/garanti | [Murat SAÇ](https://github.com/muratsac) | [![Build Status](https://travis-ci.com/payconn/garanti.svg?branch=master)](https://travis-ci.com/payconn/garanti)
+[Nestpay (EST)](https://payconn.github.io/nestpay) | payconn/nestpay | [Murat SAÇ](https://github.com/muratsac) | [![Build Status](https://travis-ci.com/payconn/nestpay.svg?branch=master)](https://travis-ci.com/payconn/nestpay)
+[Vakıf](https://payconn.github.io/vakif) | payconn/vakif | [Murat SAÇ](https://github.com/muratsac) | [![Build Status](https://travis-ci.com/payconn/vakif.svg?branch=master)](https://travis-ci.com/payconn/vakif)
+[iPara](https://payconn.github.io/ipara) | payconn/ipara | [Murat SAÇ](https://github.com/muratsac) | [![Build Status](https://travis-ci.com/payconn/ipara.svg?branch=master)](https://travis-ci.com/payconn/ipara)
+[Garanti](https://payconn.github.io/garanti) | payconn/garanti | [Murat SAÇ](https://github.com/muratsac) | [![Build Status](https://travis-ci.com/payconn/garanti.svg?branch=master)](https://travis-ci.com/payconn/garanti)
 
 ## Installation
 
