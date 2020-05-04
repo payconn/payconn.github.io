@@ -17,7 +17,7 @@ Gateway | Composer Package | Author | Build Status
 [iPara](https://payconn.github.io/ipara) | payconn/ipara | [Murat SAÇ](https://github.com/muratsac) | [![Build Status](https://travis-ci.com/payconn/ipara.svg?branch=master)](https://travis-ci.com/payconn/ipara)
 [Garanti](https://payconn.github.io/garanti) | payconn/garanti | [Murat SAÇ](https://github.com/muratsac) | [![Build Status](https://travis-ci.com/payconn/garanti.svg?branch=master)](https://travis-ci.com/payconn/garanti)
 [Wirecard](https://payconn.github.io/wirecard) | payconn/wirecard | [Murat SAÇ](https://github.com/muratsac) | [![Build Status](https://travis-ci.com/payconn/wirecard.svg?branch=master)](https://travis-ci.com/payconn/wirecard)
-[QNB Finansbank](https://github.com/ahmett/payconn-qnbfinansbank) | ahmett/payconn-qnbfinansbank | [Ahmet Kaba](https://github.com/muratsac) | [![Build Status](https://travis-ci.org/ahmett/payconn-qnbfinansbank.svg?branch=master)](https://travis-ci.org/ahmett/payconn-qnbfinansbank)
+[QNB Finansbank](https://github.com/ahmett/payconn-qnbfinansbank) | ahmett/payconn-qnbfinansbank | [Ahmet Kaba](https://github.com/ahmett) | [![Build Status](https://travis-ci.org/ahmett/payconn-qnbfinansbank.svg?branch=master)](https://travis-ci.org/ahmett/payconn-qnbfinansbank)
 
 ## Installation
 
