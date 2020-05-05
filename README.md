@@ -21,7 +21,7 @@ Gateway | Composer Package | Author | Build Status
 
 ## Installation
 
-    $ composer require payconn/<PACKAGE_NAME>
+    $ composer require <COMPOSER-PACKAGE>
 
 ## Basic Usage
 
